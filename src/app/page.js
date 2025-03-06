@@ -15,7 +15,7 @@ export default function Home() {
     fetchTasks()
       .then(setTasks)
       .finally(() => setLoading(false));
-  }, [tasks]);
+  }, []);
 
   const handleAddTask = async (task) => {
     setLoading(true); 
