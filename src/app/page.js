@@ -18,17 +18,19 @@ export default function Home() {
   }, [filter]);
 
   const handleAddTask = async (task) => {
-    setLoading(true); 
-    const newTask = await addTask({ ...task, completed: false });
+    setLoading(true);
+    const newTask = await addTask({ ...task });
     setTasks([...tasks, newTask]);
-    setLoading(false)
+    setLoading(false);
   };
 
   const handleUpdateTask = async (id) => {
-    setLoading(true); 
+    setLoading(true);
     await updateTask(id);
-    setTasks(tasks.map((t) => (t._id === id ? { ...t, completed: true } : t)));
-    setLoading(false)
+    setTasks(
+      tasks.map((t) => (t._id === id ? { ...t, status: "completed" } : t))
+    );
+    setLoading(false);
   };
 
   const handleDeleteTask = async (id) => {
