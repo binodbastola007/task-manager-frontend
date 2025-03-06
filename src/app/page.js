@@ -11,9 +11,11 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true); 
-    fetchTasks().then(setTasks).finally(() => setLoading(false));;
-  }, []);
+    setLoading(true);
+    fetchTasks()
+      .then(setTasks)
+      .finally(() => setLoading(false));
+  }, [tasks]);
 
   const handleAddTask = async (task) => {
     setLoading(true); 
