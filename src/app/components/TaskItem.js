@@ -16,7 +16,7 @@ const TaskItem = ({ task, onUpdate, onDelete }) => {
               disabled={task.completed || task.status === "completed"}
               onClick={() => onUpdate(task._id)}
               className={
-                task.status === "completed" || task.com
+                task.status === "completed" || task.completed
                   ? "bg-green-500 text-white p-2"
                   : task.status === "pending"
                   ? " bg-yellow-500 text-white p-2"
